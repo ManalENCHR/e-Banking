@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="card mt-3">
+    <div class="card-header">Accounts</div>
+    <div class="card-body">
+      <table class="table" *ngIf="customerAccountsObservable">
+        <thead>
+        <tr>
+          <th>ID</th><th>Type</th><th>Balance</th><th>CreatedAt</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let acc of customerAccountsObservable">
+          <td>{{acc.id}}</td>
+          <td>{{acc.type}}</td>
+          <td>{{acc.balance}}</td>
+          <td>{{acc.createdAt | date:'dd-MM-yyyy:HH-mm-ss'}}</td>
+          <td>
+            <button (click)="handleAccountOperations(acc)" class="btn small rounded-pill btn-sm" style="background-color: #669999; color: white">
+              Operations
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
